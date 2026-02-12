@@ -1,0 +1,48 @@
+import { Project } from '@/types'
+
+export const projects: Project[] = [
+  {
+    id: 1,
+    title: 'Brechó Beijamim',
+    description: 'E-commerce completo para brechó com catálogo de produtos, carrinho de compras funcional usando localStorage e interface responsiva.',
+    image: '/images/projects/brecho-beijamim.png',
+    category: 'frontend',
+    technologies: ['HTML', 'CSS', 'JavaScript', 'LocalStorage'],
+    liveUrl: 'https://xocoa23.github.io/brecho-beijamim/',
+    githubUrl: 'https://github.com/xocoa23/brecho-beijamim',
+    featured: true,
+  },
+  {
+    id: 2,
+    title: 'Site Powerline',
+    description: 'Website corporativo profissional desenvolvido em equipe para a empresa Powerline, com design moderno e formulário de contato funcional.',
+    image: '/images/projects/site-powerline.png',
+    category: 'fullstack',
+    technologies: ['HTML', 'CSS', 'JavaScript', 'PHP'],
+    liveUrl: 'https://xocoa23.github.io/site-powerline/',
+    githubUrl: 'https://github.com/xocoa23/site-powerline',
+    featured: true,
+  },
+  {
+    id: 3,
+    title: 'Sistema de Matrículas - PIEX',
+    description: 'Sistema completo de matrículas escolares com cadastro de alunos, backend com Node.js/Express e banco de dados MySQL para persistência.',
+    image: '/images/projects/sistema-matriculas-piex.png',
+    category: 'fullstack',
+    technologies: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'Express', 'MySQL'],
+    liveUrl: 'https://xocoa23.github.io/sistema-matriculas-piex/',
+    githubUrl: 'https://github.com/xocoa23/sistema-matriculas-piex',
+    featured: true,
+  },
+  {
+    id: 4,
+    title: 'Portfólio Pessoal',
+    description: 'Este portfólio desenvolvido com Next.js, TypeScript e Tailwind CSS, com animações interativas, efeito de estrelas e design responsivo.',
+    image: '/images/projects/portfolio-pessoal.png',
+    category: 'frontend',
+    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    liveUrl: '#',
+    githubUrl: 'https://github.com/xocoa23',
+    featured: false,
+  },
+]
