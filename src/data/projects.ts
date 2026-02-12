@@ -41,8 +41,8 @@ export const projects: Project[] = [
     image: '/images/projects/portfolio-pessoal.png',
     category: 'frontend',
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-    liveUrl: '#',
-    githubUrl: 'https://github.com/xocoa23',
+    liveUrl: 'https://portifoliodavi-liard.vercel.app',
+    githubUrl: 'https://github.com/xocoa23/portifolio-davi',
     featured: false,
   },
 ]

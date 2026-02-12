@@ -8,7 +8,7 @@ import { ThemeProvider } from '@/components/providers/ThemeProvider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://davi-reis-portfolio.vercel.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://portifoliodavi-liard.vercel.app'),
   title: 'Davi Reis - Estudante de ADS & Desenvolvedor',
   description: 'Portfólio de Davi Reis - Estudante de Análise e Desenvolvimento de Sistemas, apaixonado por tecnologia, programação e inovação.',
   keywords: ['desenvolvedor', 'estudante', 'ADS', 'HTML', 'CSS', 'JavaScript', 'Python', 'portfolio', 'curitiba'],
