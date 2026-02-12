@@ -130,7 +130,7 @@ export default function HomePage() {
                   viewport={{ once: true }}
                   className="text-center group"
                 >
-                  <div className="p-6 bg-white dark:bg-dark-700/50 hover:bg-gray-50 dark:hover:bg-dark-700 rounded-xl transition-all duration-300 group-hover:scale-105 border border-gray-200 dark:border-transparent">
+                  <div className="h-full p-6 bg-white dark:bg-dark-700/50 hover:bg-gray-50 dark:hover:bg-dark-700 rounded-xl transition-all duration-300 group-hover:scale-105 border border-gray-200 dark:border-transparent flex flex-col items-center justify-center">
                     <skill.icon className={`h-12 w-12 mx-auto mb-4 ${skill.color}`} />
                     <h3 className="text-gray-900 dark:text-white font-semibold text-lg mb-1">
                       {skill.name}
@@ -162,9 +162,9 @@ export default function HomePage() {
             <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
               Estou aberto a oportunidades, projetos e parcerias na área de tecnologia
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact">
-                <Button variant="primary" size="lg" className="group">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link href="/contact" className="w-full sm:w-auto">
+                <Button variant="primary" size="lg" className="w-full group">
                   <span>Vamos Conversar</span>
                   <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
@@ -173,6 +173,7 @@ export default function HomePage() {
               <Button
                 variant="secondary"
                 size="lg"
+                className="w-full sm:w-auto"
                 onClick={() => window.open('/cv-davi.pdf', '_blank')}
               >
                 <Download className="h-5 w-5 mr-2" />
