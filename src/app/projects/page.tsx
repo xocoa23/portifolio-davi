@@ -54,7 +54,6 @@ const ProjectsPage = () => {
             </h1>
             <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
               Uma coleção dos projetos que desenvolvi, mostrando minha evolução
-              e paixão por criar soluções inovadoras.
             </p>
           </motion.div>
         </div>
