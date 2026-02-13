@@ -73,9 +73,6 @@ const ProjectsPage = () => {
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
                 Projetos em Destaque
               </h2>
-              <p className="text-gray-500 dark:text-gray-400 text-base max-w-xl mx-auto">
-                Os projetos que mais me orgulho e que demonstram minhas habilidades
-              </p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
