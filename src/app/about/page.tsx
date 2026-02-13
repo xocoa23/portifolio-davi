@@ -37,7 +37,8 @@ const AboutPage = () => {
               <span className="text-gray-900 dark:text-white"> Mim</span>
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Estudante de tecnologia
+              Estudante de ADS apaixonado por tecnologia e inovação, sempre buscando
+              aprender e criar soluções que fazem a diferença.
             </p>
           </motion.div>
         </div>
