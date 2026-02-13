@@ -146,30 +146,29 @@ const AboutPage = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
               {skills.map((skill, index) => (
                 <motion.div
                   key={skill.name}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  transition={{ duration: 0.6, delay: index * 0.05 }}
                   viewport={{ once: true }}
-                  className="space-y-2"
+                  className="space-y-1"
                 >
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-900 dark:text-white font-medium">{skill.name}</span>
-                    <span className="text-primary-500 dark:text-primary-400 font-semibold">{skill.level}%</span>
+                    <span className="text-gray-900 dark:text-white font-medium text-sm">{skill.name}</span>
+                    <span className="text-primary-500 dark:text-primary-400 font-semibold text-sm">{skill.level}%</span>
                   </div>
-                  <div className="w-full bg-gray-200 dark:bg-dark-700 rounded-full h-2">
+                  <div className="w-full bg-gray-200 dark:bg-dark-700 rounded-full h-1.5">
                     <motion.div
                       initial={{ width: 0 }}
                       whileInView={{ width: `${skill.level}%` }}
-                      transition={{ duration: 1, delay: index * 0.1 }}
+                      transition={{ duration: 1, delay: index * 0.05 }}
                       viewport={{ once: true }}
-                      className="bg-gradient-to-r from-primary-500 to-primary-600 h-2 rounded-full"
+                      className="bg-gradient-to-r from-primary-500 to-primary-600 h-1.5 rounded-full"
                     />
                   </div>
-                  <div className="text-sm text-gray-500 dark:text-gray-400">{skill.category}</div>
                 </motion.div>
               ))}
             </div>
