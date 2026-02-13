@@ -32,11 +32,11 @@ const AboutPage = () => {
             transition={{ duration: 0.8 }}
             className="text-center space-y-6"
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
               <span className="gradient-text">Sobre</span>
               <span className="text-gray-900 dark:text-white"> Mim</span>
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
               Estudante de tecnologia, sempre buscando
               aprender e criar soluções que fazem a diferença.
             </p>
