@@ -68,3 +68,57 @@
   animation: float 3s ease-in-out infinite;
 }
 
+/* Swiper Carousel - Featured Projects */
+.featured-swiper .swiper-slide {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.featured-swiper .swiper-slide:not(.swiper-slide-active) {
+  opacity: 0.5;
+}
+
+.featured-swiper .swiper-slide-active {
+  opacity: 1;
+}
+
+.featured-swiper .swiper-pagination-bullet {
+  @apply bg-gray-400 dark:bg-dark-500 opacity-100;
+  width: 8px;
+  height: 8px;
+}
+
+.featured-swiper .swiper-pagination-bullet-active {
+  @apply bg-primary-500;
+  width: 24px;
+  border-radius: 4px;
+}
+
+.featured-swiper .swiper-button-prev,
+.featured-swiper .swiper-button-next {
+  @apply text-gray-700 dark:text-gray-200;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+:is(.dark) .featured-swiper .swiper-button-prev,
+:is(.dark) .featured-swiper .swiper-button-next {
+  background: rgba(30, 30, 40, 0.8);
+}
+
+.featured-swiper .swiper-button-prev:hover,
+.featured-swiper .swiper-button-next:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.featured-swiper .swiper-button-prev::after,
+.featured-swiper .swiper-button-next::after {
+  font-size: 16px;
+  font-weight: bold;
+}
+
