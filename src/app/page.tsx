@@ -35,9 +35,7 @@ export default function HomePage() {
               <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold">
                 <span className="gradient-text">{SITE_CONFIG.name}</span>
                 <br />
-                <span className="text-gray-900 dark:text-white">Estudante de</span>
-                <br />
-                <span className="gradient-text">ADS & Dev</span>
+                <span className="gradient-text">Dev</span>
               </h1>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
