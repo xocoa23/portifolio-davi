@@ -7,7 +7,7 @@ export const SITE_CONFIG = {
   name: 'Davi Reis',
   title: 'Davi Reis - Estudante de ADS & Desenvolvedor',
   description: 'Estudante apaixonado por tecnologia e inovação, focado em desenvolvimento de software e IA. Cursando Análise e Desenvolvimento de Sistemas na Uniopet.',
-  url: 'https://davi-reis-portfolio.vercel.app',
+  url: 'https://portifoliodavi-liard.vercel.app',
   keywords: [
     'desenvolvedor',
     'full stack',
@@ -24,7 +24,7 @@ export const SITE_CONFIG = {
   ],
   author: {
     name: 'Davi Reis',
-    email: 'davideoliveiralr+portfolio@gmail.com',
+    email: 'davideoliveira.lr@gmail.com',
     phone: '+55 (41) 99162-6188',
     location: 'Curitiba, Paraná - Brasil',
     address: 'Rua Ivo Leão, 250 - Curitiba, PR',
@@ -43,7 +43,7 @@ export const SITE_CONFIG = {
   social: {
     github: 'https://github.com/xocoa23',
     linkedin: 'https://www.linkedin.com/in/davi-reis-95376b2a3/',
-    email: 'https://mail.google.com/mail/?view=cm&to=davideoliveiralr%2Bportfolio@gmail.com',
+    email: 'mailto:davideoliveira.lr@gmail.com',
   },
 }
 

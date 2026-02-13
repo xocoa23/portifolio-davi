@@ -15,8 +15,8 @@ export const contactInfo: ContactInfo[] = [
   {
     icon: Mail,
     title: 'Email',
-    value: 'davideoliveiralr+portfolio@gmail.com',
-    href: 'mailto:davideoliveiralr+portfolio@gmail.com',
+    value: 'davideoliveira.lr@gmail.com',
+    href: 'mailto:davideoliveira.lr@gmail.com',
   },
   {
     icon: Phone,

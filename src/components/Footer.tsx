@@ -17,7 +17,7 @@ const Footer = () => {
     },
     {
       name: 'Email',
-      href: 'mailto:davideoliveiralr+portfolio@gmail.com',
+      href: 'mailto:davideoliveira.lr@gmail.com',
       icon: Mail,
     },
   ]

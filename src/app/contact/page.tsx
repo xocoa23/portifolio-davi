@@ -245,7 +245,7 @@ export default function ContactPage() {
               <Button
                 variant="primary"
                 size="lg"
-                onClick={() => window.open('mailto:davideoliveiralr+portfolio@gmail.com', '_blank')}
+                onClick={() => window.open('mailto:davideoliveira.lr@gmail.com', '_blank')}
               >
                 <Mail className="h-5 w-5 mr-2" />
                 <span>Enviar Email</span>
