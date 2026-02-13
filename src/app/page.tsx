@@ -111,7 +111,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
               {homeSkills.map((skill, index) => (
                 <motion.div
                   key={skill.name}
@@ -121,8 +121,8 @@ export default function HomePage() {
                   viewport={{ once: true }}
                   className="text-center group"
                 >
-                  <div className="h-full p-6 bg-white dark:bg-dark-700/50 hover:bg-gray-50 dark:hover:bg-dark-700 rounded-xl transition-all duration-300 group-hover:scale-105 border border-gray-200 dark:border-transparent flex flex-col items-center justify-center">
-                    <skill.icon className={`h-12 w-12 mx-auto mb-4 ${skill.color}`} />
+                  <div className="h-full p-4 bg-white dark:bg-dark-700/50 hover:bg-gray-50 dark:hover:bg-dark-700 rounded-xl transition-all duration-300 group-hover:scale-105 border border-gray-200 dark:border-transparent flex flex-col items-center justify-center">
+                    <skill.icon className={`h-10 w-10 mx-auto mb-3 ${skill.color}`} />
                     <h3 className="text-gray-900 dark:text-white font-semibold text-lg mb-1">
                       {skill.name}
                     </h3>
