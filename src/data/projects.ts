@@ -34,15 +34,4 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/xocoa23/sistema-matriculas-piex',
     featured: true,
   },
-  {
-    id: 4,
-    title: 'Portfólio Pessoal',
-    description: 'Este portfólio desenvolvido com Next.js, TypeScript e Tailwind CSS, com animações interativas, efeito de estrelas e design responsivo.',
-    image: '/images/projects/portfolio-pessoal.png',
-    category: 'frontend',
-    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-    liveUrl: 'https://portifoliodavi-liard.vercel.app',
-    githubUrl: 'https://github.com/xocoa23/portifolio-davi',
-    featured: false,
-  },
 ]

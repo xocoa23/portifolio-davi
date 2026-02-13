@@ -2,7 +2,6 @@ import {
   Code2,
   Database,
   Smartphone,
-  Sparkles
 } from 'lucide-react'
 import { Skill, SkillCategory } from '@/types'
 
@@ -44,12 +43,6 @@ export const homeSkills: SkillCategory[] = [
     description: 'SQL, MySQL',
     icon: Database,
     color: 'text-purple-400'
-  },
-  {
-    name: 'Dev com IA',
-    description: 'Claude, Gemini, Cursor',
-    icon: Sparkles,
-    color: 'text-orange-400'
   },
 ]
 

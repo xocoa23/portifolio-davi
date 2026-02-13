@@ -3,10 +3,6 @@ import { Resend } from 'resend'
 import { contactFormSchema } from '@/lib/validations/contact'
 import { z } from 'zod'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
-const CONTACT_EMAIL = process.env.CONTACT_EMAIL || 'davideoliveira.lr@gmail.com'
-
 /**
  * POST /api/contact
  * Handle contact form submissions and send email via Resend
@@ -15,6 +11,9 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
     const { name, email, subject, message } = contactFormSchema.parse(body)
+
+    const resend = new Resend(process.env.RESEND_API_KEY)
+    const CONTACT_EMAIL = process.env.CONTACT_EMAIL || 'davideoliveira.lr@gmail.com'
 
     await resend.emails.send({
       from: 'Portfólio Davi <onboarding@resend.dev>',
