@@ -69,22 +69,45 @@
 }
 
 /* Swiper Carousel - Featured Projects */
-.featured-swiper .swiper-slide {
-  transition: transform 0.4s ease, opacity 0.4s ease;
+.featured-swiper {
+  overflow: visible !important;
 }
 
-.featured-swiper .swiper-slide:not(.swiper-slide-active) {
-  opacity: 0.5;
+.featured-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.featured-swiper .swiper-slide {
+  transition: opacity 0.4s ease, filter 0.4s ease;
+  opacity: 0.4;
+  filter: blur(1px);
 }
 
 .featured-swiper .swiper-slide-active {
   opacity: 1;
+  filter: blur(0);
+}
+
+.featured-swiper .swiper-slide-prev,
+.featured-swiper .swiper-slide-next {
+  opacity: 0.55;
+  filter: blur(0);
+}
+
+/* Pagination */
+.featured-swiper .swiper-pagination {
+  bottom: 0 !important;
 }
 
 .featured-swiper .swiper-pagination-bullet {
-  @apply bg-gray-400 dark:bg-dark-500 opacity-100;
   width: 8px;
   height: 8px;
+  border-radius: 50%;
+  opacity: 1;
+}
+
+.featured-swiper .swiper-pagination-bullet {
+  @apply bg-gray-300 dark:bg-dark-600;
 }
 
 .featured-swiper .swiper-pagination-bullet-active {
@@ -93,32 +116,54 @@
   border-radius: 4px;
 }
 
+/* Navigation arrows */
+.featured-swiper .swiper-button-prev,
+.featured-swiper .swiper-button-next {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  top: 40%;
+}
+
+.featured-swiper .swiper-button-prev {
+  left: 4px;
+}
+
+.featured-swiper .swiper-button-next {
+  right: 4px;
+}
+
 .featured-swiper .swiper-button-prev,
 .featured-swiper .swiper-button-next {
   @apply text-gray-700 dark:text-gray-200;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(8px);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
 }
 
 :is(.dark) .featured-swiper .swiper-button-prev,
 :is(.dark) .featured-swiper .swiper-button-next {
-  background: rgba(30, 30, 40, 0.8);
+  background: rgba(30, 30, 40, 0.85);
 }
 
 .featured-swiper .swiper-button-prev:hover,
 .featured-swiper .swiper-button-next:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .featured-swiper .swiper-button-prev::after,
 .featured-swiper .swiper-button-next::after {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
+}
+
+/* Hide arrows on small screens (touch is enough) */
+@media (max-width: 639px) {
+  .featured-swiper .swiper-button-prev,
+  .featured-swiper .swiper-button-next {
+    display: none;
+  }
 }
 
