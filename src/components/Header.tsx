@@ -46,7 +46,7 @@ const Header = () => {
                 alt="Logo DR"
                 width={40}
                 height={40}
-                className="scale-[2.5] translate-y-[8%] group-hover:scale-[2.7] transition-transform duration-300"
+                className="scale-[2.8] translate-y-[8%] group-hover:scale-[3.0] transition-transform duration-300"
               />
             </div>
             <span className="text-xl font-bold gradient-text">Davi</span>

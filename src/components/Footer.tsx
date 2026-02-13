@@ -34,7 +34,7 @@ const Footer = () => {
                 alt="Logo DR"
                 width={32}
                 height={32}
-                className="scale-[2.5] translate-y-[8%] group-hover:scale-[2.7] transition-transform duration-300"
+                className="scale-[2.8] translate-y-[8%] group-hover:scale-[3.0] transition-transform duration-300"
               />
             </div>
             <span className="text-lg font-bold gradient-text">Davi</span>
