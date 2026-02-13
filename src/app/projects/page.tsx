@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import {
   ExternalLink,
   Github,
@@ -11,7 +11,9 @@ import {
   Code2,
   Smartphone,
   Database,
-  Globe
+  Globe,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react'
 import { projects } from '@/data/projects'
 import type { Project } from '@/types'
@@ -19,6 +21,8 @@ import type { Project } from '@/types'
 const ProjectsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [searchTerm, setSearchTerm] = useState('')
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [slideDirection, setSlideDirection] = useState(0)
 
   const categories = [
     { id: 'all', name: 'Todos', icon: Code2 },
@@ -36,6 +40,36 @@ const ProjectsPage = () => {
   })
 
   const featuredProjects = projects.filter(project => project.featured)
+
+  const nextSlide = useCallback(() => {
+    setSlideDirection(1)
+    setCurrentSlide((prev) => (prev + 1) % featuredProjects.length)
+  }, [featuredProjects.length])
+
+  const prevSlide = useCallback(() => {
+    setSlideDirection(-1)
+    setCurrentSlide((prev) => (prev - 1 + featuredProjects.length) % featuredProjects.length)
+  }, [featuredProjects.length])
+
+  const goToSlide = useCallback((index: number) => {
+    setSlideDirection(index > currentSlide ? 1 : -1)
+    setCurrentSlide(index)
+  }, [currentSlide])
+
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 300 : -300,
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction: number) => ({
+      x: direction > 0 ? -300 : 300,
+      opacity: 0,
+    }),
+  }
 
   return (
     <div className="min-h-screen pt-16 bg-white dark:bg-dark-900 transition-colors">
@@ -75,71 +109,131 @@ const ProjectsPage = () => {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {featuredProjects.map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
-                  viewport={{ once: true }}
-                  className="group bg-gray-50 dark:bg-dark-700/30 hover:bg-gray-100 dark:hover:bg-dark-700/50 rounded-xl overflow-hidden transition-all duration-300 card-hover border border-gray-200 dark:border-transparent"
-                >
-                  <div className="relative overflow-hidden">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      width={640}
-                      height={160}
-                      className="w-full h-40 object-cover object-top group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute top-3 right-3">
-                      <span className="px-2 py-1 bg-primary-500 text-white text-xs font-medium rounded-full">
-                        Destaque
-                      </span>
-                    </div>
-                  </div>
+            {/* Carousel */}
+            <div className="relative max-w-2xl mx-auto">
+              {/* Arrow Buttons */}
+              <button
+                onClick={prevSlide}
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 z-10 p-2 rounded-full bg-gray-200 dark:bg-dark-700 hover:bg-gray-300 dark:hover:bg-dark-600 text-gray-700 dark:text-gray-300 transition-colors hidden md:flex items-center justify-center"
+                aria-label="Projeto anterior"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              <button
+                onClick={nextSlide}
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 z-10 p-2 rounded-full bg-gray-200 dark:bg-dark-700 hover:bg-gray-300 dark:hover:bg-dark-600 text-gray-700 dark:text-gray-300 transition-colors hidden md:flex items-center justify-center"
+                aria-label="Próximo projeto"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
 
-                  <div className="p-5 space-y-3">
-                    <div>
-                      <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">{project.title}</h3>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{project.description}</p>
-                    </div>
-
-                    <div className="flex flex-wrap gap-1">
-                      {project.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2 py-1 bg-gray-200 dark:bg-dark-600 text-primary-500 dark:text-primary-400 text-xs rounded-full"
-                        >
-                          {tech}
+              {/* Slide */}
+              <div className="overflow-hidden rounded-xl">
+                <AnimatePresence mode="wait" custom={slideDirection}>
+                  <motion.div
+                    key={currentSlide}
+                    custom={slideDirection}
+                    variants={slideVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{ duration: 0.4, ease: 'easeInOut' }}
+                    className="group bg-gray-50 dark:bg-dark-700/30 rounded-xl overflow-hidden border border-gray-200 dark:border-transparent"
+                  >
+                    <div className="relative overflow-hidden">
+                      <Image
+                        src={featuredProjects[currentSlide].image}
+                        alt={featuredProjects[currentSlide].title}
+                        width={800}
+                        height={300}
+                        className="w-full h-48 sm:h-56 object-cover object-top"
+                      />
+                      <div className="absolute top-3 right-3">
+                        <span className="px-2 py-1 bg-primary-500 text-white text-xs font-medium rounded-full">
+                          Destaque
                         </span>
-                      ))}
+                      </div>
                     </div>
 
-                    <div className="flex space-x-3">
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-primary inline-flex items-center space-x-2 text-xs px-4 py-2"
-                      >
-                        <ExternalLink className="h-3 w-3" />
-                        <span>Ver Demo</span>
-                      </a>
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-secondary inline-flex items-center space-x-2 text-xs px-4 py-2"
-                      >
-                        <Github className="h-3 w-3" />
-                        <span>Código</span>
-                      </a>
+                    <div className="p-5 space-y-3">
+                      <div>
+                        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
+                          {featuredProjects[currentSlide].title}
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                          {featuredProjects[currentSlide].description}
+                        </p>
+                      </div>
+
+                      <div className="flex flex-wrap gap-1">
+                        {featuredProjects[currentSlide].technologies.map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-2 py-1 bg-gray-200 dark:bg-dark-600 text-primary-500 dark:text-primary-400 text-xs rounded-full"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="flex space-x-3">
+                        <a
+                          href={featuredProjects[currentSlide].liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-primary inline-flex items-center space-x-2 text-xs px-4 py-2"
+                        >
+                          <ExternalLink className="h-3 w-3" />
+                          <span>Ver Demo</span>
+                        </a>
+                        <a
+                          href={featuredProjects[currentSlide].githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-secondary inline-flex items-center space-x-2 text-xs px-4 py-2"
+                        >
+                          <Github className="h-3 w-3" />
+                          <span>Código</span>
+                        </a>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* Dots + Mobile Arrows */}
+              <div className="flex items-center justify-center gap-4 mt-6">
+                <button
+                  onClick={prevSlide}
+                  className="p-1.5 rounded-full bg-gray-200 dark:bg-dark-700 hover:bg-gray-300 dark:hover:bg-dark-600 text-gray-700 dark:text-gray-300 transition-colors md:hidden"
+                  aria-label="Projeto anterior"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </button>
+
+                <div className="flex gap-2">
+                  {featuredProjects.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => goToSlide(index)}
+                      className={`rounded-full transition-all duration-300 ${
+                        index === currentSlide
+                          ? 'w-6 h-2 bg-primary-500'
+                          : 'w-2 h-2 bg-gray-300 dark:bg-dark-600 hover:bg-gray-400 dark:hover:bg-dark-500'
+                      }`}
+                      aria-label={`Ir para projeto ${index + 1}`}
+                    />
+                  ))}
+                </div>
+
+                <button
+                  onClick={nextSlide}
+                  className="p-1.5 rounded-full bg-gray-200 dark:bg-dark-700 hover:bg-gray-300 dark:hover:bg-dark-600 text-gray-700 dark:text-gray-300 transition-colors md:hidden"
+                  aria-label="Próximo projeto"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </button>
+              </div>
             </div>
           </motion.div>
         </div>
