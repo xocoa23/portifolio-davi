@@ -5,7 +5,7 @@ import { z } from 'zod'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-const CONTACT_EMAIL = process.env.CONTACT_EMAIL || 'davideoliveiralr+portfolio@gmail.com'
+const CONTACT_EMAIL = process.env.CONTACT_EMAIL || 'davideoliveira.lr@gmail.com'
 
 /**
  * POST /api/contact
