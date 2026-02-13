@@ -155,15 +155,15 @@ export default function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link href="/contact" className="w-full sm:w-auto">
-                <Button variant="primary" size="lg" className="w-full group">
+                <Button variant="primary" size="md" className="w-full group">
                   <span>Vamos Conversar</span>
-                  <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                  <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
               </Link>
 
               <Button
                 variant="secondary"
-                size="lg"
+                size="md"
                 className="w-full sm:w-auto"
                 onClick={() => window.open('/cv-davi.pdf', '_blank')}
               >
