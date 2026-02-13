@@ -40,13 +40,6 @@ export default function HomePage() {
                 <span className="gradient-text">ADS & Dev</span>
               </h1>
 
-              <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                Estudante de Análise e Desenvolvimento de Sistemas, apaixonado por
-                <span className="text-primary-500 dark:text-primary-400 font-semibold"> tecnologia</span>,
-                <span className="text-primary-500 dark:text-primary-400 font-semibold"> programação</span> e
-                <span className="text-primary-500 dark:text-primary-400 font-semibold"> inteligência artificial</span>
-              </p>
-
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
                 <Link href="/projects">
                   <Button variant="primary" size="lg" className="group">
