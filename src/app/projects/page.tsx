@@ -82,47 +82,45 @@ const ProjectsPage = () => {
             </div>
 
             {/* 3D Coverflow Carousel */}
-            <div className="featured-carousel overflow-hidden">
+            <div className="featured-carousel overflow-hidden max-w-4xl mx-auto">
               <Swiper
                 effect="coverflow"
                 grabCursor={true}
                 centeredSlides={true}
-                slidesPerView={1.15}
-                spaceBetween={16}
+                slidesPerView={1.2}
+                spaceBetween={12}
+                speed={500}
                 initialSlide={1}
                 coverflowEffect={{
                   rotate: 0,
-                  stretch: 80,
-                  depth: 150,
+                  stretch: 60,
+                  depth: 120,
                   modifier: 1,
                   slideShadows: false,
                 }}
                 breakpoints={{
                   640: {
-                    slidesPerView: 1.4,
-                    spaceBetween: 20,
+                    slidesPerView: 1.5,
+                    spaceBetween: 16,
                     coverflowEffect: {
-                      stretch: 60,
-                      depth: 180,
-                      modifier: 1,
+                      stretch: 40,
+                      depth: 140,
                     },
                   },
                   768: {
-                    slidesPerView: 1.6,
-                    spaceBetween: 24,
+                    slidesPerView: 1.7,
+                    spaceBetween: 20,
                     coverflowEffect: {
-                      stretch: 40,
-                      depth: 200,
-                      modifier: 1,
+                      stretch: 30,
+                      depth: 160,
                     },
                   },
                   1024: {
-                    slidesPerView: 1.8,
-                    spaceBetween: 30,
+                    slidesPerView: 2,
+                    spaceBetween: 24,
                     coverflowEffect: {
-                      stretch: 20,
-                      depth: 220,
-                      modifier: 1,
+                      stretch: 10,
+                      depth: 180,
                     },
                   },
                 }}
@@ -131,68 +129,66 @@ const ProjectsPage = () => {
                 }}
                 navigation={true}
                 modules={[EffectCoverflow, Pagination, Navigation]}
-                className="featured-swiper !pb-14"
+                className="featured-swiper !pb-12"
               >
                 {featuredProjects.map((project) => (
                   <SwiperSlide key={project.id}>
-                    <div className="bg-white dark:bg-dark-700/50 rounded-2xl overflow-hidden border border-gray-200 dark:border-dark-600/50 shadow-xl">
-                      {/* Image */}
+                    <div className="bg-white dark:bg-dark-700/50 rounded-xl overflow-hidden border border-gray-200 dark:border-dark-600/50 shadow-lg">
                       <div className="relative overflow-hidden">
                         <Image
                           src={project.image}
                           alt={project.title}
-                          width={800}
-                          height={320}
-                          className="w-full h-44 sm:h-52 md:h-56 object-cover object-top"
+                          width={600}
+                          height={200}
+                          className="w-full h-36 sm:h-40 object-cover object-top"
                           draggable={false}
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                        <div className="absolute top-3 right-3">
-                          <span className="px-2.5 py-1 bg-primary-500/90 backdrop-blur-sm text-white text-xs font-medium rounded-full shadow-md">
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                        <div className="absolute top-2 right-2">
+                          <span className="px-2 py-0.5 bg-primary-500/90 backdrop-blur-sm text-white text-[10px] font-medium rounded-full">
                             Destaque
                           </span>
                         </div>
                       </div>
 
-                      {/* Content */}
-                      <div className="p-4 sm:p-5 space-y-3">
+                      <div className="p-3 sm:p-4 space-y-2">
                         <div>
-                          <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-1">
+                          <h3 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white mb-0.5">
                             {project.title}
                           </h3>
-                          <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm leading-relaxed line-clamp-2 sm:line-clamp-none">
+                          <p className="text-gray-600 dark:text-gray-300 text-xs leading-relaxed line-clamp-2">
                             {project.description}
                           </p>
                         </div>
 
-                        <div className="flex flex-wrap gap-1.5">
+                        <div className="flex flex-wrap gap-1">
                           {project.technologies.map((tech) => (
                             <span
                               key={tech}
-                              className="px-2 py-0.5 sm:px-2.5 sm:py-1 bg-primary-500/10 dark:bg-primary-500/15 text-primary-600 dark:text-primary-400 text-xs font-medium rounded-full border border-primary-500/20"
+                              className="px-1.5 py-0.5 bg-primary-500/10 dark:bg-primary-500/15 text-primary-600 dark:text-primary-400 text-[10px] font-medium rounded-full border border-primary-500/20"
                             >
                               {tech}
                             </span>
                           ))}
                         </div>
 
-                        <div className="flex space-x-2 sm:space-x-3 pt-1">
+                        <div className="flex space-x-2">
                           <a
                             href={project.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn-primary inline-flex items-center space-x-1.5 sm:space-x-2 text-xs px-3 sm:px-5 py-2 sm:py-2.5 rounded-lg"
+                            className="btn-primary inline-flex items-center space-x-1.5 text-[11px] px-3 py-1.5 rounded-md"
                           >
-                            <ExternalLink className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+                            <ExternalLink className="h-3 w-3" />
                             <span>Ver Demo</span>
                           </a>
                           <a
                             href={project.githubUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn-secondary inline-flex items-center space-x-1.5 sm:space-x-2 text-xs px-3 sm:px-5 py-2 sm:py-2.5 rounded-lg"
+                            className="btn-secondary inline-flex items-center space-x-1.5 text-[11px] px-3 py-1.5 rounded-md"
                           >
-                            <Github className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+                            <Github className="h-3 w-3" />
                             <span>Código</span>
                           </a>
                         </div>
