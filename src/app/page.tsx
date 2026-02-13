@@ -32,7 +32,7 @@ export default function HomePage() {
               transition={{ duration: 0.8 }}
               className="space-y-6"
             >
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold">
+              <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold">
                 <span className="gradient-text">{SITE_CONFIG.name}</span>
                 <br />
                 <span className="text-white">Dev</span>
