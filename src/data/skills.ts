@@ -19,7 +19,6 @@ export const skills: Skill[] = [
   { name: 'PHP', level: 40, category: 'Backend' },
   { name: 'SQL / MySQL', level: 45, category: 'Banco de Dados' },
   { name: 'Java', level: 45, category: 'Backend' },
-  { name: 'Desenvolvimento com IA', level: 75, category: 'Ferramentas' },
 ]
 
 /**
