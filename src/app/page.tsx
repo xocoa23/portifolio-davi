@@ -40,14 +40,14 @@ export default function HomePage() {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
                 <Link href="/projects">
-                  <Button variant="primary" size="lg" className="group">
+                  <Button variant="primary" size="md" className="group">
                     <span>Ver Projetos</span>
-                    <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                    <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                   </Button>
                 </Link>
 
                 <Link href="/contact">
-                  <Button variant="secondary" size="lg">
+                  <Button variant="secondary" size="md">
                     Entrar em Contato
                   </Button>
                 </Link>
