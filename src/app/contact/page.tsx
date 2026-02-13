@@ -50,11 +50,11 @@ export default function ContactPage() {
             transition={{ duration: 0.8 }}
             className="text-center space-y-6"
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
               <span className="gradient-text">Entre em</span>
               <span className="text-gray-900 dark:text-white"> Contato</span>
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
               Vamos conversar sobre seu próximo projeto! Estou sempre aberto a
               novas oportunidades e desafios interessantes.
             </p>
@@ -65,7 +65,7 @@ export default function ContactPage() {
       {/* Contact Content */}
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-4xl mx-auto">
             {/* Contact Info */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -75,10 +75,10 @@ export default function ContactPage() {
               className="space-y-8"
             >
               <div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
                   Vamos Conversar
                 </h2>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
                   Estou sempre interessado em novos projetos e oportunidades.
                   Se você tem uma ideia ou precisa de ajuda com desenvolvimento,
                   não hesite em entrar em contato!
@@ -96,36 +96,36 @@ export default function ContactPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-dark-700/30 hover:bg-gray-100 dark:hover:bg-dark-700/50 rounded-lg transition-all duration-300 group"
+                    className="flex items-center space-x-3 p-3 bg-gray-50 dark:bg-dark-700/30 hover:bg-gray-100 dark:hover:bg-dark-700/50 rounded-lg transition-all duration-300 group"
                   >
-                    <div className="p-3 bg-primary-500/20 rounded-lg group-hover:bg-primary-500/30 transition-colors duration-300">
-                      <info.icon className="h-6 w-6 text-primary-500 dark:text-primary-400" />
+                    <div className="p-2 bg-primary-500/20 rounded-lg group-hover:bg-primary-500/30 transition-colors duration-300">
+                      <info.icon className="h-5 w-5 text-primary-500 dark:text-primary-400" />
                     </div>
                     <div>
-                      <h3 className="text-gray-900 dark:text-white font-semibold">
+                      <h3 className="text-gray-900 dark:text-white font-semibold text-sm">
                         {info.title}
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-400">{info.value}</p>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm">{info.value}</p>
                     </div>
                   </motion.a>
                 ))}
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
                   Redes Sociais
                 </h3>
-                <div className="flex space-x-4">
+                <div className="flex space-x-3">
                   {socialLinks.map((link) => (
                     <a
                       key={link.name}
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`p-3 bg-gray-50 dark:bg-dark-700/30 hover:bg-gray-100 dark:hover:bg-dark-700/50 rounded-lg transition-all duration-300 ${link.color}`}
+                      className={`p-2 bg-gray-50 dark:bg-dark-700/30 hover:bg-gray-100 dark:hover:bg-dark-700/50 rounded-lg transition-all duration-300 ${link.color}`}
                       aria-label={link.name}
                     >
-                      <link.icon className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+                      <link.icon className="h-5 w-5 text-gray-700 dark:text-gray-300" />
                     </a>
                   ))}
                 </div>
@@ -138,13 +138,13 @@ export default function ContactPage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="bg-gray-50 dark:bg-dark-700/30 rounded-xl p-8 border border-gray-200 dark:border-dark-600"
+              className="bg-gray-50 dark:bg-dark-700/30 rounded-xl p-6 border border-gray-200 dark:border-dark-600"
             >
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                 Envie uma Mensagem
               </h3>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <Input
                     label="Nome"
@@ -205,7 +205,7 @@ export default function ContactPage() {
                 <Button
                   type="submit"
                   variant="primary"
-                  size="lg"
+                  size="md"
                   className="w-full"
                   isLoading={status === 'loading'}
                   disabled={status === 'loading'}
@@ -235,28 +235,28 @@ export default function ContactPage() {
             viewport={{ once: true }}
             className="text-center space-y-8"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
               Pronto para começar?
             </h2>
-            <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-600 dark:text-gray-400 text-base max-w-xl mx-auto">
               Vamos trabalhar juntos para criar algo incrível que faça a diferença
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 variant="primary"
-                size="lg"
+                size="md"
                 onClick={() => window.open('mailto:davideoliveira.lr@gmail.com', '_blank')}
               >
-                <Mail className="h-5 w-5 mr-2" />
+                <Mail className="h-4 w-4 mr-2" />
                 <span>Enviar Email</span>
               </Button>
 
               <Button
                 variant="secondary"
-                size="lg"
+                size="md"
                 onClick={() => window.open(SITE_CONFIG.author.whatsapp, '_blank')}
               >
-                <MessageCircle className="h-5 w-5 mr-2" />
+                <MessageCircle className="h-4 w-4 mr-2" />
                 <span>WhatsApp</span>
               </Button>
             </div>

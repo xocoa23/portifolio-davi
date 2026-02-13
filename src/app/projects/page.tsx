@@ -48,11 +48,11 @@ const ProjectsPage = () => {
             transition={{ duration: 0.8 }}
             className="text-center space-y-6"
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
               <span className="gradient-text">Meus</span>
               <span className="text-gray-900 dark:text-white"> Projetos</span>
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
               Uma coleção dos projetos que desenvolvi, mostrando minha evolução
               e paixão por criar soluções inovadoras.
             </p>
@@ -71,15 +71,15 @@ const ProjectsPage = () => {
             className="space-y-12"
           >
             <div className="text-center">
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
                 Projetos em Destaque
               </h2>
-              <p className="text-gray-500 dark:text-gray-400 text-lg max-w-2xl mx-auto">
+              <p className="text-gray-500 dark:text-gray-400 text-base max-w-xl mx-auto">
                 Os projetos que mais me orgulho e que demonstram minhas habilidades
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {featuredProjects.map((project, index) => (
                 <motion.div
                   key={project.id}
@@ -94,50 +94,50 @@ const ProjectsPage = () => {
                       src={project.image}
                       alt={project.title}
                       width={640}
-                      height={192}
-                      className="w-full h-48 object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                      height={160}
+                      className="w-full h-40 object-cover object-top group-hover:scale-105 transition-transform duration-300"
                     />
-                    <div className="absolute top-4 right-4">
-                      <span className="px-3 py-1 bg-primary-500 text-white text-sm font-medium rounded-full">
+                    <div className="absolute top-3 right-3">
+                      <span className="px-2 py-1 bg-primary-500 text-white text-xs font-medium rounded-full">
                         Destaque
                       </span>
                     </div>
                   </div>
 
-                  <div className="p-6 space-y-4">
+                  <div className="p-5 space-y-3">
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{project.title}</h3>
-                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{project.description}</p>
+                      <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">{project.title}</h3>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{project.description}</p>
                     </div>
 
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1">
                       {project.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 bg-gray-200 dark:bg-dark-600 text-primary-500 dark:text-primary-400 text-sm rounded-full"
+                          className="px-2 py-1 bg-gray-200 dark:bg-dark-600 text-primary-500 dark:text-primary-400 text-xs rounded-full"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
 
-                    <div className="flex space-x-4">
+                    <div className="flex space-x-3">
                       <a
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn-primary inline-flex items-center space-x-2 text-sm"
+                        className="btn-primary inline-flex items-center space-x-2 text-xs px-4 py-2"
                       >
-                        <ExternalLink className="h-4 w-4" />
+                        <ExternalLink className="h-3 w-3" />
                         <span>Ver Demo</span>
                       </a>
                       <a
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn-secondary inline-flex items-center space-x-2 text-sm"
+                        className="btn-secondary inline-flex items-center space-x-2 text-xs px-4 py-2"
                       >
-                        <Github className="h-4 w-4" />
+                        <Github className="h-3 w-3" />
                         <span>Código</span>
                       </a>
                     </div>
@@ -160,10 +160,10 @@ const ProjectsPage = () => {
             className="space-y-12"
           >
             <div className="text-center">
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
                 Todos os Projetos
               </h2>
-              <p className="text-gray-500 dark:text-gray-400 text-lg max-w-2xl mx-auto">
+              <p className="text-gray-500 dark:text-gray-400 text-base max-w-xl mx-auto">
                 Explore todos os meus projetos e veja as tecnologias que utilizo
               </p>
             </div>
@@ -200,7 +200,7 @@ const ProjectsPage = () => {
             </div>
 
             {/* Projects Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {filteredProjects.map((project, index) => (
                 <motion.div
                   key={project.id}
