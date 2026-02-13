@@ -100,10 +100,10 @@ const AboutPage = () => {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="bg-gradient-to-br from-primary-500/10 to-primary-600/10 dark:from-primary-500/20 dark:to-primary-600/20 rounded-xl p-5 border border-gray-200 dark:border-transparent max-w-md mx-auto">
-                <div className="space-y-4">
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Estatísticas</h3>
-                  <div className="grid grid-cols-2 gap-4">
+              <div className="bg-gradient-to-br from-primary-500/10 to-primary-600/10 dark:from-primary-500/20 dark:to-primary-600/20 rounded-2xl p-6 border border-gray-200 dark:border-transparent max-w-lg mx-auto">
+                <div className="space-y-5">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-5">Estatísticas</h3>
+                  <div className="grid grid-cols-2 gap-5">
                     {stats.map((stat, index) => (
                       <motion.div
                         key={stat.label}
@@ -114,9 +114,9 @@ const AboutPage = () => {
                         className="text-center"
                       >
                         <div className="p-3 bg-gray-50 dark:bg-dark-700/50 rounded-lg">
-                          <stat.icon className="h-6 w-6 text-primary-400 mx-auto mb-1" />
+                          <stat.icon className="h-7 w-7 text-primary-400 mx-auto mb-2" />
                           <div className="text-xl font-bold text-gray-900 dark:text-white">{stat.value}</div>
-                          <div className="text-xs text-gray-500 dark:text-gray-400">{stat.label}</div>
+                          <div className="text-sm text-gray-500 dark:text-gray-400">{stat.label}</div>
                         </div>
                       </motion.div>
                     ))}
@@ -188,15 +188,15 @@ const AboutPage = () => {
             className="space-y-12"
           >
             <div className="text-center">
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
                 Experiência Profissional
               </h2>
-              <p className="text-gray-500 dark:text-gray-400 text-lg max-w-2xl mx-auto">
+              <p className="text-gray-500 dark:text-gray-400 text-base max-w-xl mx-auto">
                 Minha jornada profissional e os projetos que moldaram minha carreira
               </p>
             </div>
 
-            <div className="space-y-8">
+            <div className="space-y-6 max-w-3xl mx-auto">
               {experiences.map((exp, index) => (
                 <motion.div
                   key={index}
@@ -204,21 +204,21 @@ const AboutPage = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: index * 0.2 }}
                   viewport={{ once: true }}
-                  className="flex flex-col md:flex-row gap-6 p-6 bg-gray-50 dark:bg-dark-700/30 hover:bg-gray-100 dark:hover:bg-dark-700/50 rounded-xl transition-all duration-300 border border-gray-200 dark:border-transparent"
+                  className="flex flex-col md:flex-row gap-4 p-5 bg-gray-50 dark:bg-dark-700/30 hover:bg-gray-100 dark:hover:bg-dark-700/50 rounded-xl transition-all duration-300 border border-gray-200 dark:border-transparent"
                 >
                   <div className="flex-shrink-0">
-                    <div className="p-4 bg-primary-500/10 dark:bg-primary-500/20 rounded-lg">
-                      <exp.icon className="h-8 w-8 text-primary-500 dark:text-primary-400" />
+                    <div className="p-3 bg-primary-500/10 dark:bg-primary-500/20 rounded-lg">
+                      <exp.icon className="h-6 w-6 text-primary-500 dark:text-primary-400" />
                     </div>
                   </div>
-                  <div className="flex-1 space-y-2">
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{exp.title}</h3>
+                  <div className="flex-1 space-y-1">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{exp.title}</h3>
                     <div className="flex flex-col sm:flex-row sm:items-center gap-2">
-                      <span className="text-primary-500 dark:text-primary-400 font-medium">{exp.company}</span>
+                      <span className="text-primary-500 dark:text-primary-400 font-medium text-sm">{exp.company}</span>
                       <span className="text-gray-400">•</span>
-                      <span className="text-gray-500 dark:text-gray-400">{exp.period}</span>
+                      <span className="text-gray-500 dark:text-gray-400 text-sm">{exp.period}</span>
                     </div>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{exp.description}</p>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">{exp.description}</p>
                   </div>
                 </motion.div>
               ))}
