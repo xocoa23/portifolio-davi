@@ -100,10 +100,10 @@ const AboutPage = () => {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="bg-gradient-to-br from-primary-500/10 to-primary-600/10 dark:from-primary-500/20 dark:to-primary-600/20 rounded-2xl p-8 border border-gray-200 dark:border-transparent">
-                <div className="space-y-6">
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Estatísticas</h3>
-                  <div className="grid grid-cols-2 gap-6">
+              <div className="bg-gradient-to-br from-primary-500/10 to-primary-600/10 dark:from-primary-500/20 dark:to-primary-600/20 rounded-xl p-5 border border-gray-200 dark:border-transparent max-w-md mx-auto">
+                <div className="space-y-4">
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Estatísticas</h3>
+                  <div className="grid grid-cols-2 gap-4">
                     {stats.map((stat, index) => (
                       <motion.div
                         key={stat.label}
@@ -113,10 +113,10 @@ const AboutPage = () => {
                         viewport={{ once: true }}
                         className="text-center"
                       >
-                        <div className="p-4 bg-gray-50 dark:bg-dark-700/50 rounded-lg">
-                          <stat.icon className="h-8 w-8 text-primary-400 mx-auto mb-2" />
-                          <div className="text-2xl font-bold text-gray-900 dark:text-white">{stat.value}</div>
-                          <div className="text-sm text-gray-500 dark:text-gray-400">{stat.label}</div>
+                        <div className="p-3 bg-gray-50 dark:bg-dark-700/50 rounded-lg">
+                          <stat.icon className="h-6 w-6 text-primary-400 mx-auto mb-1" />
+                          <div className="text-xl font-bold text-gray-900 dark:text-white">{stat.value}</div>
+                          <div className="text-xs text-gray-500 dark:text-gray-400">{stat.label}</div>
                         </div>
                       </motion.div>
                     ))}
