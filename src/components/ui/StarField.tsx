@@ -18,6 +18,8 @@ export function StarField() {
   const smoothMouseRef = useRef({ x: 0, y: 0 })
   const animationRef = useRef<number>(0)
   const isDarkRef = useRef(true)
+  const isMobileRef = useRef(false)
+  const hasGyroRef = useRef(false)
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -26,6 +28,9 @@ export function StarField() {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
+    // Detect mobile
+    isMobileRef.current = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+
     // Detect theme changes
     const checkTheme = () => {
       isDarkRef.current = document.documentElement.classList.contains('dark')
@@ -33,6 +38,39 @@ export function StarField() {
     checkTheme()
     const observer = new MutationObserver(checkTheme)
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+
+    // Gyroscope handler for mobile
+    const handleOrientation = (e: DeviceOrientationEvent) => {
+      if (e.gamma === null || e.beta === null) return
+      hasGyroRef.current = true
+      // gamma: left/right tilt (-90 to 90), beta: front/back tilt (-180 to 180)
+      targetMouseRef.current = {
+        x: Math.max(-1, Math.min(1, (e.gamma || 0) / 30)),
+        y: Math.max(-1, Math.min(1, ((e.beta || 0) - 40) / 30)),
+      }
+    }
+
+    // Try to enable gyroscope on mobile
+    if (isMobileRef.current) {
+      const requestPermission = (DeviceOrientationEvent as any).requestPermission
+      if (typeof requestPermission === 'function') {
+        // iOS 13+ requires permission
+        requestPermission().then((state: string) => {
+          if (state === 'granted') {
+            window.addEventListener('deviceorientation', handleOrientation, { passive: true })
+          }
+        }).catch(() => {})
+      } else {
+        // Android and older iOS
+        window.addEventListener('deviceorientation', handleOrientation, { passive: true })
+        // Check after a short delay if gyro data arrived
+        setTimeout(() => {
+          if (!hasGyroRef.current) {
+            window.removeEventListener('deviceorientation', handleOrientation)
+          }
+        }, 1000)
+      }
+    }
 
     const createStars = (width: number, height: number) => {
       const count = Math.floor((width * height) / 5000)
@@ -61,10 +99,10 @@ export function StarField() {
     resize()
     window.addEventListener('resize', resize)
 
-    // Listen on window instead of canvas for smoother tracking
+    // Mouse tracking for desktop
     const handleMouseMove = (e: MouseEvent) => {
+      if (isMobileRef.current) return
       const rect = canvas.getBoundingClientRect()
-      // Only track if mouse is over the hero section area
       if (e.clientY < rect.bottom) {
         targetMouseRef.current = {
           x: ((e.clientX - rect.left) / rect.width - 0.5) * 2,
@@ -81,7 +119,15 @@ export function StarField() {
       if (!ctx || !canvas) return
       time += 0.003
 
-      // Smooth interpolation (lerp) for fluid mouse following
+      // On mobile without gyroscope: automatic floating movement
+      if (isMobileRef.current && !hasGyroRef.current) {
+        targetMouseRef.current = {
+          x: Math.sin(time * 0.8) * 0.4,
+          y: Math.cos(time * 0.6) * 0.3,
+        }
+      }
+
+      // Smooth interpolation (lerp) for fluid movement
       const lerp = 0.05
       smoothMouseRef.current.x += (targetMouseRef.current.x - smoothMouseRef.current.x) * lerp
       smoothMouseRef.current.y += (targetMouseRef.current.y - smoothMouseRef.current.y) * lerp
@@ -133,6 +179,7 @@ export function StarField() {
     return () => {
       window.removeEventListener('resize', resize)
       window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('deviceorientation', handleOrientation)
       cancelAnimationFrame(animationRef.current)
       observer.disconnect()
     }
