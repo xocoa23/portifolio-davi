@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply bg-white dark:bg-dark-900 text-gray-900 dark:text-white font-sans;
+    @apply bg-gray-50 dark:bg-dark-900 text-gray-900 dark:text-white font-sans;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
   

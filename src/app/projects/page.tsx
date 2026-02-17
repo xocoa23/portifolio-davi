@@ -44,7 +44,7 @@ const ProjectsPage = () => {
   const featuredProjects = projects.filter(project => project.featured)
 
   return (
-    <div className="min-h-screen pt-16 bg-white dark:bg-dark-900 transition-colors">
+    <div className="min-h-screen pt-16 bg-gray-50 dark:bg-dark-900 transition-colors">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-dark-800 dark:to-dark-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -66,7 +66,7 @@ const ProjectsPage = () => {
       </section>
 
       {/* Featured Projects */}
-      <section className="py-20 bg-white dark:bg-dark-900">
+      <section className="py-20 bg-gray-50 dark:bg-dark-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

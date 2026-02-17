@@ -18,9 +18,9 @@ export default function HomePage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-white dark:bg-dark-900 transition-colors">
+    <div className="min-h-screen bg-gray-50 dark:bg-dark-900 transition-colors">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 to-white dark:from-dark-900 dark:to-dark-800">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-100 to-gray-50 dark:from-dark-900 dark:to-dark-800">
         {/* Star Field Background - Interactive with mouse */}
         <StarField />
 
@@ -35,7 +35,7 @@ export default function HomePage() {
               <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold">
                 <span className="gradient-text">{SITE_CONFIG.name}</span>
                 <br />
-                <span className="text-white">Dev</span>
+                <span className="text-dark-700 dark:text-white">Dev</span>
               </h1>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
@@ -138,7 +138,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white dark:bg-dark-900">
+      <section className="py-20 bg-gray-50 dark:bg-dark-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

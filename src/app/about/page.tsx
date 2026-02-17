@@ -22,7 +22,7 @@ const AboutPage = () => {
   const stats = statistics
 
   return (
-    <div className="min-h-screen pt-16 bg-white dark:bg-dark-900 transition-colors">
+    <div className="min-h-screen pt-16 bg-gray-50 dark:bg-dark-900 transition-colors">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-dark-800 dark:to-dark-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,7 +45,7 @@ const AboutPage = () => {
       </section>
 
       {/* About Content */}
-      <section className="py-20 bg-white dark:bg-dark-900">
+      <section className="py-20 bg-gray-50 dark:bg-dark-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -61,8 +61,7 @@ const AboutPage = () => {
               <div className="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
                 <p>
                   Minha jornada na tecnologia começou em 2020 como Jovem Aprendiz na MADERO,
-                  onde atuei com suporte técnico e manutenção de equipamentos. Foi ali que
-                  descobri minha paixão por resolver problemas com tecnologia.
+                  onde atuei com suporte técnico e manutenção de equipamentos.
                 </p>
                 <p>
                   Atualmente curso Análise e Desenvolvimento de Sistemas na Uniopet em
@@ -147,7 +146,7 @@ const AboutPage = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 max-w-2xl mx-auto">
               {skills.map((skill, index) => (
                 <motion.div
                   key={skill.name}
@@ -178,7 +177,7 @@ const AboutPage = () => {
       </section>
 
       {/* Experience Section */}
-      <section className="py-20 bg-white dark:bg-dark-900">
+      <section className="py-20 bg-gray-50 dark:bg-dark-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

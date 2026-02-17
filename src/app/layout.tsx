@@ -30,7 +30,7 @@ export default function RootLayout({
     <html lang="pt-BR" suppressHydrationWarning>
       <body className={spaceGrotesk.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <div className="min-h-screen bg-white dark:bg-dark-900 transition-colors duration-300">
+          <div className="min-h-screen bg-gray-50 dark:bg-dark-900 transition-colors duration-300">
             <Header />
             <main className="relative">
               {children}

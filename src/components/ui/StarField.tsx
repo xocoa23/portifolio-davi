@@ -17,6 +17,7 @@ export function StarField() {
   const targetMouseRef = useRef({ x: 0, y: 0 })
   const smoothMouseRef = useRef({ x: 0, y: 0 })
   const animationRef = useRef<number>(0)
+  const isDarkRef = useRef(true)
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -24,6 +25,14 @@ export function StarField() {
 
     const ctx = canvas.getContext('2d')
     if (!ctx) return
+
+    // Detect theme changes
+    const checkTheme = () => {
+      isDarkRef.current = document.documentElement.classList.contains('dark')
+    }
+    checkTheme()
+    const observer = new MutationObserver(checkTheme)
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
 
     const createStars = (width: number, height: number) => {
       const count = Math.floor((width * height) / 5000)
@@ -81,6 +90,7 @@ export function StarField() {
 
       const mx = smoothMouseRef.current.x
       const my = smoothMouseRef.current.y
+      const dark = isDarkRef.current
 
       starsRef.current.forEach((star) => {
         const parallax = star.z * 0.5 + 0.2
@@ -96,17 +106,21 @@ export function StarField() {
 
         const radius = star.size * (star.z * 0.3 + 0.7)
 
-        // Main star
+        // Main star - dark dots on light mode, light dots on dark mode
         ctx.beginPath()
         ctx.arc(x, y, radius, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(210, 225, 255, ${alpha})`
+        ctx.fillStyle = dark
+          ? `rgba(210, 225, 255, ${alpha})`
+          : `rgba(30, 60, 120, ${alpha * 0.45})`
         ctx.fill()
 
         // Glow on brighter stars
         if (star.size > 1.2 && twinkle > 0.8) {
           ctx.beginPath()
           ctx.arc(x, y, radius * 2.5, 0, Math.PI * 2)
-          ctx.fillStyle = `rgba(150, 190, 255, ${alpha * 0.1})`
+          ctx.fillStyle = dark
+            ? `rgba(150, 190, 255, ${alpha * 0.1})`
+            : `rgba(14, 165, 233, ${alpha * 0.12})`
           ctx.fill()
         }
       })
@@ -120,6 +134,7 @@ export function StarField() {
       window.removeEventListener('resize', resize)
       window.removeEventListener('mousemove', handleMouseMove)
       cancelAnimationFrame(animationRef.current)
+      observer.disconnect()
     }
   }, [])
 

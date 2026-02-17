@@ -40,7 +40,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen pt-16 bg-white dark:bg-dark-900 transition-colors">
+    <div className="min-h-screen pt-16 bg-gray-50 dark:bg-dark-900 transition-colors">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-dark-800 dark:to-dark-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -144,7 +144,7 @@ export default function ContactPage() {
                 Envie uma Mensagem
               </h3>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-3">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <Input
                     label="Nome"
@@ -185,7 +185,7 @@ export default function ContactPage() {
                   onChange={handleInputChange}
                   error={errors.message}
                   placeholder="Conte-me sobre seu projeto ou ideia..."
-                  rows={6}
+                  rows={4}
                   required
                 />
 

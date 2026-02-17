@@ -25,7 +25,7 @@ export const projects: Project[] = [
   },
   {
     id: 3,
-    title: 'Sistema de Matrículas - PIEX',
+    title: 'Sistema de Matrículas - Educação para Todos',
     description: 'Sistema completo de matrículas escolares com cadastro de alunos, backend com Node.js/Express e banco de dados MySQL para persistência.',
     image: '/images/projects/sistema-matriculas-piex.png',
     category: 'fullstack',
